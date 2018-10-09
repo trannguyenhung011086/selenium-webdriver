@@ -1,7 +1,7 @@
 const config = {
     baseUrl: process.env.BASE_URL || 'https://www.testing.leflair.io',
     domain: '.testing.leflair.io',
-    signin: '/auth/sign-in',
+    signin: '/auth/signin',
     register: '/auth/register',
     cookieEma: [
         '_v1EmaticSolutions=%5B%224b959189-cade-11e8-b5ef-0242ac160003%22%2C1538991673639%5D; Domain=.testing.leflair.io; Path=/; Expires=2020-09-15T03:10:32.000Z',

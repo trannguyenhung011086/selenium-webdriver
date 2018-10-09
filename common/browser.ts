@@ -1,5 +1,7 @@
-import { Builder, ThenableWebDriver, By, until, WebElement, IWebDriverCookie } from 'selenium-webdriver';
+import { Builder, ThenableWebDriver, By, until, WebElement, IWebDriverCookie } from 'selenium-webdriver'
 import config from '../config'
+import { Options as ChromeOptions } from 'selenium-webdriver/chrome'
+import { Options as FirefoxOptions } from 'selenium-webdriver/firefox'
 
 export class Browser {
 
@@ -7,6 +9,8 @@ export class Browser {
     public constructor(private browserName: string) {
         this.driver = new Builder()
             .forBrowser(browserName)
+            // .setChromeOptions(new ChromeOptions().headless())
+            // .setFirefoxOptions(new FirefoxOptions().headless())
             // .usingServer(config.hub)
             .build()
     }
@@ -49,6 +53,11 @@ export class Browser {
                 throw error
             }
         }
+    }
+
+    public async isVisible(selector: string) {
+        var el = await this.findElement(selector)
+        return await this.driver.wait(until.elementIsVisible(el)).isDisplayed()
     }
 
     public async getText(selector: string) {

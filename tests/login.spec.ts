@@ -30,7 +30,7 @@ describe('Log in with invalid credentials', () => {
     })
 })
 
-describe('Log in with valid credentials', () => {
+describe.only('Log in with valid credentials', () => {
     beforeAll(async () => {
         browser = new Browser(config.browser)
         pages = new AllPages(browser)
@@ -46,7 +46,8 @@ describe('Log in with valid credentials', () => {
     })
 
     test('Log out successfully', async() => {
-
+        await pages.header.logOut()
+        expect(await browser.isVisible(pages.header.registerBtn)).toBe(true)
     })
 
     afterAll(async () => {
