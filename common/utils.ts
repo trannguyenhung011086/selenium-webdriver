@@ -3,7 +3,7 @@ require('es6-promise').polyfill()
 let fetch = require('isomorphic-fetch')
 export class Utils {
 
-    public async loginRequest() {
+    public async loginEmailRequest() {
         const settings: Object = {
             method: 'POST',
             credentials: 'include',

@@ -9,6 +9,7 @@ export class Browser {
     public constructor(private browserName: string) {
         this.driver = new Builder()
             .forBrowser(browserName)
+            // .setChromeOptions(new ChromeOptions().setMobileEmulation({ deviceName: 'iPhone 6' }))
             // .setChromeOptions(new ChromeOptions().headless())
             // .setFirefoxOptions(new FirefoxOptions().headless())
             // .usingServer(config.hub)
@@ -40,7 +41,7 @@ export class Browser {
     }
 
     public async findElements(selector: string) {
-        var els: any
+        var els: WebElement[]
         try {
             els = await this.driver.wait(until.elementsLocated(By.css(selector)))
             return els

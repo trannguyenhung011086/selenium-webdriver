@@ -9,7 +9,7 @@ const config = {
         '_v1EmaticSolutionsEI=%7B%22c_15586_1%22%3A%5B0%2C1538991673650%2C0%5D%2C%22c_15589_2%22%3A%5B1%2C1538991676673%2C0%5D%2C%22c_15590_3%22%3A%5B0%2C1538991673667%2C0%5D%7D; Domain=.testing.leflair.io; Path=/; Expires=2020-09-15T03:10:32.000Z'
     ],
     hub: 'http://localhost:4444/wd/hub',
-    browser: 'chrome'
+    browser: ['chrome', 'firefox'],
 }
 
 export default config

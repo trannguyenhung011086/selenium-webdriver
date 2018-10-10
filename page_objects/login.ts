@@ -9,7 +9,7 @@ export default class Login extends Page {
     public passwordField = '#password'
     public submitBtn = 'button[type="submit"]'
     public errorMsg = '.alert-danger'
-    public successNotify = '.jsx-509117281.welcome-back-notify'
+    public successNotify = '.welcome-back-notify'
     public femaleBtn = '#option1'
     public maleBtn = '#option2'
     public emailError = '.form-group:nth-child(1) > .invalid-feedback'
