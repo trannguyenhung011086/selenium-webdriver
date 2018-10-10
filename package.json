@@ -1,30 +1,37 @@
 {
   "name": "selenium_jest",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "./jest.setup.js",
+    "testResultsProcessor": "jest-junit-reporter"
+  },
   "version": "1.0.0",
   "description": "use selenium with jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose --detectOpenHandles"
   },
   "author": "Hung Tran",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^10.11.6",
+    "@types/selenium-webdriver": "^3.0.12",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
+    "chromedriver": "^2.42.0",
     "es6-promise": "^4.2.5",
-    "faker": "^4.1.0",
+    "geckodriver": "^1.12.2",
     "isomorphic-fetch": "^2.2.1",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "@types/jest": "^23.3.5",
     "jest": "^23.6.0",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.4",
-    "@types/node": "^10.11.5",
-    "@types/selenium-webdriver": "^3.0.12",
-    "chromedriver": "^2.42.0",
-    "geckodriver": "^1.12.2",
-    "ts-jest": "^23.10.4",
-    "typescript": "^3.1.1"
+    "faker": "^4.1.0",
+    "jest-junit-reporter": "^1.1.0"
   }
 }
