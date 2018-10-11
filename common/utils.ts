@@ -1,27 +1,69 @@
 import config from '../config'
-require('es6-promise').polyfill()
-let fetch = require('isomorphic-fetch')
+import axios, { AxiosRequestConfig } from 'axios'
+
 export class Utils {
 
-    public async loginEmailRequest() {
-        const settings: Object = {
-            method: 'POST',
-            credentials: 'include',
+    public async getLogInCookie() {
+        const settings: AxiosRequestConfig = {
+            baseURL: config.baseUrl,
+            withCredentials: true,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-type': 'application/json'
             },
-            body: JSON.stringify({
-                email: 'test1234@test.com',
-                password: '123456789'
-            })
+            validateStatus: (status) => {
+                return true
+            }
         }
-        const cookie: string = await fetch(config.baseUrl + '/api/v2/account/signin', settings)
+        const data: Object = {
+            email: 'test1234@test.com',
+            password: '123456789'
+        }
+        const cookie: string = await axios.post('/api/v2/account/signin', data, settings)
             .then(response => {
-                return response.headers.get('set-cookie')
-            })
-            .catch(e => {
-                return e
+                return response.headers['set-cookie'][0]
             })
         return cookie
+    }
+
+    public async makePost(api: string, data: Object, cookie: string=null) {
+        let headers: Object = {
+            'Content-type': 'application/json'
+        }
+        if (cookie) {
+            headers['Cookie'] = cookie
+        }
+        const settings: AxiosRequestConfig = {
+            baseURL: config.baseUrl,
+            withCredentials: true,
+            headers: headers,
+            validateStatus: (status) => {
+                return true
+            }
+        }
+        return await axios.post(api, data, settings)
+            .then(response => {
+                return response
+            })
+    }
+
+    public async makeGet(api: string, cookie: string=null) {
+        let headers: Object = {
+            'Content-type': 'application/json'
+        }
+        if (cookie) {
+            headers['Cookie'] = cookie
+        }
+        const settings: AxiosRequestConfig = {
+            baseURL: config.baseUrl,
+            withCredentials: true,
+            headers: headers,
+            validateStatus: (status) => {
+                return true
+            }
+        }
+        return await axios.get(api, settings)
+            .then(response => {
+                return response
+            })
     }
 }

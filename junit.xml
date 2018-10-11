@@ -1,0 +1,20 @@
+<testsuites name="jest tests" tests="8" failures="0" time="7.221">
+  <testsuite name="Login API" errors="0" failures="0" skipped="0" timestamp="2018-10-11T09:26:30" time="7.179" tests="8">
+    <testcase classname="Login API POST / invalid credentials: Louisa_Brown@hotmail.com efXklQcRj3pmhHy" name="Login API POST / invalid credentials: Louisa_Brown@hotmail.com efXklQcRj3pmhHy" time="0.79">
+    </testcase>
+    <testcase classname="Login API POST / invalid credentials: test1234@mail.com MFEaShwj1ovN_pI" name="Login API POST / invalid credentials: test1234@mail.com MFEaShwj1ovN_pI" time="0.734">
+    </testcase>
+    <testcase classname="Login API POST / invalid credentials: trannguyenhung011086@gmail.com hqwZPjGKODfRy5u" name="Login API POST / invalid credentials: trannguyenhung011086@gmail.com hqwZPjGKODfRy5u" time="0.667">
+    </testcase>
+    <testcase classname="Login API POST / Missing email field" name="Login API POST / Missing email field" time="0.195">
+    </testcase>
+    <testcase classname="Login API POST / Missing password field" name="Login API POST / Missing password field" time="0.213">
+    </testcase>
+    <testcase classname="Login API POST / empty email and password" name="Login API POST / empty email and password" time="0.213">
+    </testcase>
+    <testcase classname="Login API POST / correct email and password" name="Login API POST / correct email and password" time="0.762">
+    </testcase>
+    <testcase classname="Login API GET / log out" name="Login API GET / log out" time="0.906">
+    </testcase>
+  </testsuite>
+</testsuites>

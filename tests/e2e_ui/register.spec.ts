@@ -1,9 +1,9 @@
-import { Browser } from '../common'
-import config from '../config'
-import { AllPages } from '../page_objects'
+import { Browser } from '../../common'
+import config from '../../config'
+import { AllPages } from '../../page_objects'
 let browser: Browser
 let pages: AllPages
-var faker = require('faker')
+import * as faker from 'faker'
 
 describe.each(config.browser)('Register new account', (browerName: string) => {
     describe('Run on ' + browerName, () => {
@@ -30,7 +30,7 @@ describe.each(config.browser)('Register new account', (browerName: string) => {
         })
     
         test('Register with length < 7 password', async () => {
-            await pages.login.submitWithEmail('test@test.com', '123')
+            await pages.login.submitWithEmail(faker.internet.email(), '123')
             var error = await pages.login.getPasswordError()
             expect(error).toEqual('Mật khẩu phải dài ít nhất 7 ký tự')
         })
