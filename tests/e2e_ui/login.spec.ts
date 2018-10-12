@@ -16,8 +16,8 @@ describe.each(config.browser)('Log in failed', (browserName: string) => {
         })
 
         test.each([[faker.internet.email(), faker.internet.password()],
-        ['test1234@mail.com', faker.internet.password()],
-        ['trannguyenhung011086@gmail.com', faker.internet.password()]])
+        [config.testAccount.email, faker.internet.password()],
+        [config.testAccount.facebook, faker.internet.password()]])
             ('Use invalid credentials: %s %s', async (email: string, password: string) => {
                 await pages.login.submitWithEmail(email, password)
                 var error = await pages.login.getErrorText()
@@ -49,7 +49,7 @@ describe.each(config.browser)('Log in successfully', (browserName: string) => {
         })
 
         test('Log in with existing email', async () => {
-            await pages.login.submitWithEmail('test1234@mail.com', '123456789')
+            await pages.login.submitWithEmail(config.testAccount.email, config.testAccount.password)
             var success = await pages.login.getSuccessText()
             expect(success).toMatch(/Chào mừng .+ quay trở lại!/)
         })

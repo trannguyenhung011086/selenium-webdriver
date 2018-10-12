@@ -5,7 +5,16 @@ const config = {
     api: {
         register: '/api/v2/account/signup',
         login: '/api/v2/account/signin',
-        logout: '/api/v2/account/signout'
+        logout: '/api/v2/account/signout',
+        forgot: '/api/v2/account/forgot',
+        password: '/api/v2/account/password',
+        account: '/api/v2/account',
+        product: '/api/v2/product/'
+    },
+    testAccount: {
+        email: 'Kailee56@yahoo.com',
+        password: '123456789',
+        facebook: 'trannguyenhung011086@protonmail.com'
     },
     cookieEma: [
         '_v1EmaticSolutions=%5B%224b959189-cade-11e8-b5ef-0242ac160003%22%2C1538991673639%5D; Domain=.testing.leflair.io; Path=/; Expires=2020-09-15T03:10:32.000Z',

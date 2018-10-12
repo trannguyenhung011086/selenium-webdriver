@@ -1,20 +1,62 @@
-<testsuites name="jest tests" tests="8" failures="0" time="7.221">
-  <testsuite name="Login API" errors="0" failures="0" skipped="0" timestamp="2018-10-11T09:26:30" time="7.179" tests="8">
-    <testcase classname="Login API POST / invalid credentials: Louisa_Brown@hotmail.com efXklQcRj3pmhHy" name="Login API POST / invalid credentials: Louisa_Brown@hotmail.com efXklQcRj3pmhHy" time="0.79">
+<testsuites name="jest tests" tests="29" failures="0" time="22.571">
+  <testsuite name="Login API" errors="0" failures="0" skipped="0" timestamp="2018-10-12T07:52:26" time="22.522" tests="29">
+    <testcase classname="Login API POST / invalid credentials: Leola_Schneider@yahoo.com 1fc8p35gFTvzWuI" name="Login API POST / invalid credentials: Leola_Schneider@yahoo.com 1fc8p35gFTvzWuI" time="0.904">
     </testcase>
-    <testcase classname="Login API POST / invalid credentials: test1234@mail.com MFEaShwj1ovN_pI" name="Login API POST / invalid credentials: test1234@mail.com MFEaShwj1ovN_pI" time="0.734">
+    <testcase classname="Login API POST / invalid credentials: Kailee56@yahoo.com A2N6NJ_b4_3gYOE" name="Login API POST / invalid credentials: Kailee56@yahoo.com A2N6NJ_b4_3gYOE" time="0.32">
     </testcase>
-    <testcase classname="Login API POST / invalid credentials: trannguyenhung011086@gmail.com hqwZPjGKODfRy5u" name="Login API POST / invalid credentials: trannguyenhung011086@gmail.com hqwZPjGKODfRy5u" time="0.667">
+    <testcase classname="Login API POST / invalid credentials: trannguyenhung011086@protonmail.com fpgS8K2oyaeEnpP" name="Login API POST / invalid credentials: trannguyenhung011086@protonmail.com fpgS8K2oyaeEnpP" time="0.617">
     </testcase>
-    <testcase classname="Login API POST / Missing email field" name="Login API POST / Missing email field" time="0.195">
+    <testcase classname="Login API POST / Missing email field" name="Login API POST / Missing email field" time="0.187">
     </testcase>
-    <testcase classname="Login API POST / Missing password field" name="Login API POST / Missing password field" time="0.213">
+    <testcase classname="Login API POST / Missing password field" name="Login API POST / Missing password field" time="0.204">
     </testcase>
-    <testcase classname="Login API POST / empty email and password" name="Login API POST / empty email and password" time="0.213">
+    <testcase classname="Login API POST / empty email and password" name="Login API POST / empty email and password" time="0.206">
     </testcase>
-    <testcase classname="Login API POST / correct email and password" name="Login API POST / correct email and password" time="0.762">
+    <testcase classname="Login API POST / correct email and password" name="Login API POST / correct email and password" time="0.323">
     </testcase>
-    <testcase classname="Login API GET / log out" name="Login API GET / log out" time="0.906">
+    <testcase classname="Login API GET / log out" name="Login API GET / log out" time="0.488">
+    </testcase>
+    <testcase classname="Register API POST / empty email and password" name="Register API POST / empty email and password" time="0.952">
+    </testcase>
+    <testcase classname="Register API POST / wrong format email" name="Register API POST / wrong format email" time="0.983">
+    </testcase>
+    <testcase classname="Register API POST / length &lt; 7 password" name="Register API POST / length &lt; 7 password" time="0.922">
+    </testcase>
+    <testcase classname="Register API POST / existing account" name="Register API POST / existing account" time="0.197">
+    </testcase>
+    <testcase classname="Register API POST / missing email field" name="Register API POST / missing email field" time="0.931">
+    </testcase>
+    <testcase classname="Register API POST / missing password field" name="Register API POST / missing password field" time="1.022">
+    </testcase>
+    <testcase classname="Register API POST / successful" name="Register API POST / successful" time="0.987">
+    </testcase>
+    <testcase classname="Forgot password API POST / empty email" name="Forgot password API POST / empty email" time="0.191">
+    </testcase>
+    <testcase classname="Forgot password API POST / missing email field" name="Forgot password API POST / missing email field" time="0.194">
+    </testcase>
+    <testcase classname="Forgot password API POST / non-existing email" name="Forgot password API POST / non-existing email" time="0.197">
+    </testcase>
+    <testcase classname="Forgot password API POST / Facebook email" name="Forgot password API POST / Facebook email" time="0.205">
+    </testcase>
+    <testcase classname="Forgot password API POST / existing email" name="Forgot password API POST / existing email" time="1.299">
+    </testcase>
+    <testcase classname="Update password API PUT / cannot change password - current: a6SAJlWcf8G5GJx - new: oyBKtIb0_DJfruO" name="Update password API PUT / cannot change password - current: a6SAJlWcf8G5GJx - new: oyBKtIb0_DJfruO" time="0.591">
+    </testcase>
+    <testcase classname="Update password API PUT / cannot change password - current:  - new: xq6oinGY8p1Akki" name="Update password API PUT / cannot change password - current:  - new: xq6oinGY8p1Akki" time="0.47">
+    </testcase>
+    <testcase classname="Update password API PUT / cannot change password - current: b8ICY4pgsrRELuJ - new: " name="Update password API PUT / cannot change password - current: b8ICY4pgsrRELuJ - new: " time="0.541">
+    </testcase>
+    <testcase classname="Update password API PUT / length &lt; 7 new password - new: " name="Update password API PUT / length &lt; 7 new password - new: " time="1.473">
+    </testcase>
+    <testcase classname="Update password API PUT / length &lt; 7 new password - new: 123" name="Update password API PUT / length &lt; 7 new password - new: 123" time="1.328">
+    </testcase>
+    <testcase classname="Update password API PUT / access denied" name="Update password API PUT / access denied" time="0.194">
+    </testcase>
+    <testcase classname="Update password API PUT / can change password" name="Update password API PUT / can change password" time="1.347">
+    </testcase>
+    <testcase classname="Update info API PUT / can change name" name="Update info API PUT / can change name" time="1.324">
+    </testcase>
+    <testcase classname="Update info API PUT / cannot change to another existing email" name="Update info API PUT / cannot change to another existing email" time="1.196">
     </testcase>
   </testsuite>
 </testsuites>

@@ -36,7 +36,7 @@ describe.each(config.browser)('Register new account', (browerName: string) => {
         })
     
         test('Register with existing account', async () => {
-            await pages.login.submitWithEmail('test1234@mail.com', '123456789')
+            await pages.login.submitWithEmail(config.testAccount.email, config.testAccount.password)
             var error = await pages.login.getErrorText()
             expect(error).toEqual('Email đã đăng ký. Vui lòng đăng nhập')
         })

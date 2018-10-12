@@ -15,17 +15,15 @@ export class Utils {
             }
         }
         const data: Object = {
-            email: 'test1234@test.com',
-            password: '123456789'
+            email: config.testAccount.email,
+            password: config.testAccount.password
         }
         const cookie: string = await axios.post('/api/v2/account/signin', data, settings)
-            .then(response => {
-                return response.headers['set-cookie'][0]
-            })
+            .then(response => response.headers['set-cookie'][0])
         return cookie
     }
 
-    public async makePost(api: string, data: Object, cookie: string=null) {
+    public async makePost(api: string, data: Object, cookie: string = null) {
         let headers: Object = {
             'Content-type': 'application/json'
         }
@@ -41,12 +39,29 @@ export class Utils {
             }
         }
         return await axios.post(api, data, settings)
-            .then(response => {
-                return response
-            })
+            .then(response => response)
     }
 
-    public async makeGet(api: string, cookie: string=null) {
+    public async makePut(api: string, data: Object, cookie: string = null) {
+        let headers: Object = {
+            'Content-type': 'application/json'
+        }
+        if (cookie) {
+            headers['Cookie'] = cookie
+        }
+        const settings: AxiosRequestConfig = {
+            baseURL: config.baseUrl,
+            withCredentials: true,
+            headers: headers,
+            validateStatus: (status) => {
+                return true
+            }
+        }
+        return await axios.put(api, data, settings)
+            .then(response => response)
+    }
+
+    public async makeGet(api: string, cookie: string = null) {
         let headers: Object = {
             'Content-type': 'application/json'
         }
@@ -62,8 +77,6 @@ export class Utils {
             }
         }
         return await axios.get(api, settings)
-            .then(response => {
-                return response
-            })
+            .then(response => response)
     }
 }
