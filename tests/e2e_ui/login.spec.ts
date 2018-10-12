@@ -15,6 +15,14 @@ describe.each(config.browser)('Log in failed', (browserName: string) => {
             await browser.setCokie(config.cookieEma)
         })
 
+        test('Use empty email and password', async () => {
+            await pages.login.submitWithEmail('', '')
+            var error = await pages.login.getEmailError()
+            expect(error).toEqual('Vui lòng nhập email.')
+            error = await pages.login.getPasswordError()
+            expect(error).toEqual('Vui lòng nhập password.')
+        })
+
         test.each([[faker.internet.email(), faker.internet.password()],
         [config.testAccount.email, faker.internet.password()],
         [config.testAccount.facebook, faker.internet.password()]])
@@ -23,14 +31,6 @@ describe.each(config.browser)('Log in failed', (browserName: string) => {
                 var error = await pages.login.getErrorText()
                 expect(error).toEqual('Email hoặc mật khẩu không đúng. Vui lòng thử lại')
             })
-
-        test('Use empty email and password', async () => {
-            await pages.login.submitWithEmail('', '')
-            var error = await pages.login.getEmailError()
-            expect(error).toEqual('Vui lòng nhập email.')
-            error = await pages.login.getPasswordError()
-            expect(error).toEqual('Vui lòng nhập password.')
-        })
 
         afterAll(async () => {
             await browser.close()
