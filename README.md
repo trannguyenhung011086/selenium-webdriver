@@ -16,3 +16,6 @@ Structure:
 ## Reporter
 Use jest-junit reporter to export test result to report folder
 *Note*: to use with CI, run `jest --ci --reporters=default --reporters=jest-junit`
+
+## Work with Selenoid
+TO-DO
