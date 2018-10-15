@@ -1,5 +1,5 @@
 import { Builder, ThenableWebDriver, By, until, WebElement, IWebDriverCookie } from 'selenium-webdriver'
-import config from '../config'
+import config from '../config/config'
 import { Options as ChromeOptions } from 'selenium-webdriver/chrome'
 import { Options as FirefoxOptions } from 'selenium-webdriver/firefox'
 
@@ -8,11 +8,14 @@ export class Browser {
     private driver: ThenableWebDriver;
     public constructor(private browserName: string) {
         this.driver = new Builder()
-            .forBrowser(browserName)
+            .withCapabilities({
+                "browserName": browserName,
+                "enableVNC": true
+            })
             // .setChromeOptions(new ChromeOptions().setMobileEmulation({ deviceName: 'iPhone 6' }))
             // .setChromeOptions(new ChromeOptions().headless())
             // .setFirefoxOptions(new FirefoxOptions().headless())
-            // .usingServer(config.hub)
+            .usingServer(config.hub)
             .build()
     }
 

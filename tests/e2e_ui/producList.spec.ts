@@ -1,5 +1,5 @@
 import { Browser, Utils } from '../../common'
-import config from '../../config'
+import config from '../../config/config'
 import { AllPages } from '../../page_objects'
 let browser: Browser
 let pages: AllPages
@@ -24,7 +24,7 @@ describe.each(config.browser)('Load product list', (browserName: string) => {
             expect(newFilterNum).toEqual(filterNum + 30)
         })
 
-        test.only('Get product card info', async () => {
+        test('Get product card info', async () => {
             const info = await pages.productList.getProductInfo()
             const product_info = await new Utils().makeGet(config.api.product + info.id)
             expect(info.brand).toEqual(product_info.data.brand.name)

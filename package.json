@@ -13,6 +13,7 @@
   "description": "use selenium with jest",
   "main": "index.js",
   "scripts": {
+    "start_selenium": "selenium-standalone install && selenium-standalone start",
     "test_ui": "JEST_SUITE_NAME=\"End 2 End UI Testing\" JEST_JUNIT_OUTPUT=\"./report/junit_ui.xml\" jest tests/e2e_ui --verbose --detectOpenHandles",
     "test_api": "JEST_SUITE_NAME=\"End 2 End API Testing\" JEST_JUNIT_OUTPUT=\"./report/junit_api.xml\" jest tests/e2e_api --verbose --detectOpenHandles"
   },
@@ -27,15 +28,14 @@
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "chromedriver": "^2.42.0",
+    "faker": "^4.1.0",
     "geckodriver": "^1.12.2",
     "jest": "^23.6.0",
+    "jest-junit": "^5.2.0",
+    "selenium-standalone": "^6.15.3",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "ts-jest": "^23.10.4",
-    "typescript": "^3.1.2",
-    "faker": "^4.1.0",
-    "jest-junit": "^5.2.0"
+    "typescript": "^3.1.2"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

@@ -12,7 +12,7 @@ const config = {
         product: '/api/v2/product/'
     },
     testAccount: {
-        email: 'Kailee56@yahoo.com',
+        email: 'test1234@test.com',
         password: '123456789',
         facebook: 'trannguyenhung011086@protonmail.com'
     },

@@ -1,5 +1,5 @@
 import { Browser } from '../../common'
-import config from '../../config'
+import config from '../../config/config'
 import { AllPages } from '../../page_objects'
 let browser: Browser
 let pages: AllPages
