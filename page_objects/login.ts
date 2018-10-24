@@ -5,8 +5,8 @@ export default class Login extends Page {
         super(browser)
     }
 
-    public emailField = '#email'
-    public passwordField = '#password'
+    public emailField = 'input[type="email"]'
+    public passwordField = 'input[type="password"]'
     public submitBtn = 'button[type="submit"]'
     public errorMsg = '.alert-danger'
     public successNotify = '.welcome-back-notify'
