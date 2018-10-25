@@ -1,0 +1,102 @@
+- pipeline: "Test with Chrome"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  actions:
+  - action: "Run with Chrome"
+    type: "BUILD"
+    working_directory: "/buddy/selenium-webdriver"
+    docker_image_name: "library/node"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# yarn install"
+    - "NODE_ENV=testing SELENIUM_REMOTE_URL=http://selenium-ch:4444/wd/hub npm run test_ui_chrome -- --ci --reporters=default --reporters=jest-junit"
+    setup_commands:
+    - "npm install -g gulp grunt-cli"
+    services:
+    - type: "SELENIUM_CHROME"
+      version: "latest"
+      persistent: false
+      connection:
+        host: "selenium-ch"
+        port: 4444
+      plugins: []
+      accounts: []
+    mount_filesystem_path: "/buddy/selenium-webdriver"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
+- pipeline: "Test with Firefox"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  actions:
+  - action: "Run with Firefox"
+    type: "BUILD"
+    working_directory: "/buddy/selenium-webdriver"
+    docker_image_name: "library/node"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "NODE_ENV=testing SELENIUM_REMOTE_URL=http://selenium-ff:4444/wd/hub npm run test_ui_firefox -- --ci --reporters=default --reporters=jest-junit"
+    setup_commands:
+    - "npm install -g gulp grunt-cli"
+    services:
+    - type: "SELENIUM_FIREFOX"
+      version: "latest"
+      persistent: false
+      connection:
+        host: "selenium-ff"
+        port: 4444
+      plugins: []
+      accounts: []
+    mount_filesystem_path: "/buddy/selenium-webdriver"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
+- pipeline: "Test with API"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  actions:
+  - action: "Run with API"
+    type: "BUILD"
+    working_directory: "/buddy/selenium-webdriver"
+    docker_image_name: "library/node"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "NODE_ENV=testing npm run test_api -- --ci --reporters=default --reporters=jest-junit"
+    setup_commands:
+    - "npm install -g gulp grunt-cli"
+    mount_filesystem_path: "/buddy/selenium-webdriver"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
+- pipeline: "Test with mobile"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  ref_type: "BRANCH"
+  actions:
+  - action: "Run with mobile emulator"
+    type: "BUILD"
+    working_directory: "/buddy/selenium-webdriver"
+    docker_image_name: "library/node"
+    docker_image_tag: "latest"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "NODE_ENV=testing SELENIUM_REMOTE_URL=http://selenium-ch:4444/wd/hub SELENIUM_BROWSER=chrome npm run test_ui_mobile -- --ci --reporters=default --reporters=jest-junit"
+    setup_commands:
+    - "npm install -g gulp grunt-cli"
+    services:
+    - type: "SELENIUM_CHROME"
+      version: "latest"
+      persistent: false
+      connection:
+        host: "selenium-ch"
+        port: 4444
+      plugins: []
+      accounts: []
+    mount_filesystem_path: "/buddy/selenium-webdriver"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
