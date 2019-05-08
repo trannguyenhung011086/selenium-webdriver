@@ -1,21 +1,14 @@
-import { Browser } from '../common'
-import Header from './header'
-import Login from './login'
-import ProductList from './productList'
+import { Browser } from "../common";
+import Login from "./login";
+import Notes from "./notes";
 
-export {
-    Header,
-    Login,
-    ProductList
-}
+export { Login, Notes };
 
 export class AllPages {
-    public header: Header
-    public login: Login
-    public productList: ProductList
+    public login: Login;
+    public notes: Notes;
     constructor(browser: Browser) {
-        this.header = new Header(browser)
-        this.login = new Login(browser)
-        this.productList = new ProductList(browser)
+        this.login = new Login(browser);
+        this.notes = new Notes(browser);
     }
 }
