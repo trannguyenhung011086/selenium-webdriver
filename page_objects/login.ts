@@ -1,23 +1,21 @@
 import { Browser, Page } from "../common";
 
-export default class Login extends Page {
-    constructor(browser: Browser) {
-        super(browser);
-    }
-    public loginBtn = ".button-login";
-    public cancelBtn = ".button-cancel";
-    public userNameField = 'input[name="login.username"]';
-    public passwordField = 'input[name="login.password"]';
-    public errorMsg = "#login-error-message";
+export class Login extends Page {
+	constructor(browser: Browser) {
+		super(browser);
+	}
 
-    public async submitWithEmail(email: string, password: string) {
-        await this.browser.click(this.loginBtn);
-        await this.browser.type(this.userNameField, email);
-        await this.browser.type(this.passwordField, password);
-        await this.browser.click(this.loginBtn);
-    }
+	loginBtn = ".button-login";
+	cancelBtn = ".button-cancel";
+	userNameField = 'input[name="login.username"]';
+	passwordField = 'input[name="login.password"]';
+	errorMsg = "#login-error-message";
 
-    async getErrorText() {
-        return this.browser.getText(this.errorMsg);
-    }
+	async inputName() {
+		await this.browser.type({ selector: "#full_name", content: "test123" });
+	}
+
+	async getErrorText() {
+		return this.browser.getText(this.errorMsg);
+	}
 }

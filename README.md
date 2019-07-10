@@ -1,4 +1,4 @@
-# Use Selenium JS for testing web app
+# Use Selenium JS for testing web app with AVA framework
 
 **Structure**
 
@@ -8,7 +8,9 @@
 
 **Instruction**
 
--   install latest node and yarn or npm
--   run `yarn install` or `npm install` to install required packaged defined at package.json
--   run `yarn run test_ui_chrome` to run all tests at `tests/e2e_ui/` on Chrome
--   run `yarn run test_ui_firefox` to run all tests at `tests/e2e_ui/` on Firefox
+-   install latest node and npm
+-   run `npm install -g chromedriver geckodriver` to add driver to PATH
+-   run `npm install -g ava` to add AVA runner to PATH
+-   run `npm install` to install required packaged defined at package.json
+-   run `npm run test_ui_chrome` to run all tests at `tests/e2e_ui/` on Chrome
+-   run `npm run test_ui_firefox` to run all tests at `tests/e2e_ui/` on Firefox

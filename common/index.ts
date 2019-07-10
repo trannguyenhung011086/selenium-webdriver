@@ -1,3 +1,3 @@
-export * from './browser'
-export * from './utils'
-export * from './page'
+export { Browser } from "./browser";
+export { Utils } from "./utils";
+export { Page } from "./page";
