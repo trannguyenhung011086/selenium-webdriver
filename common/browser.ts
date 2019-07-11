@@ -58,11 +58,22 @@ export class Browser {
 		await this.driver.sleep(time);
 	}
 
+	async waitVisible(selector: string, time?: number) {
+		const el = await this.findElement(selector);
+		try {
+			await this.driver.wait(until.elementIsVisible(el), time);
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
 	async findElement(selector: string) {
-		var el: WebElement = await this.driver.wait(
-			until.elementLocated(By.css(selector)),
-			10000
-		);
+		var el: WebElement = await this.driver
+			.wait(until.elementLocated(By.css(selector)), 10000)
+			.catch(e => {
+				throw { msg: "cannot find " + selector, err: e };
+			});
 		return el;
 	}
 
@@ -72,15 +83,6 @@ export class Browser {
 			10000
 		);
 		return els;
-	}
-
-	async isVisible(selector: string) {
-		try {
-			await this.findElement(selector);
-			return true;
-		} catch (e) {
-			return false;
-		}
 	}
 
 	async getText(selector: string) {
@@ -95,7 +97,8 @@ export class Browser {
 		selector: string;
 		attribute: string;
 	}) {
-		var el = await this.findElement(selector);
+		const el = await this.driver.findElement(By.css(selector));
+		// var el = await this.findElement(selector);
 		return await el.getAttribute(attribute);
 	}
 
@@ -110,7 +113,9 @@ export class Browser {
 
 	async click(selector: string) {
 		var el = await this.findElement(selector);
-		await el.click();
+		await el.click().catch(async e => {
+			await this.driver.executeScript("arguments[0].click()", el);
+		});
 	}
 
 	async scrollClick(selector: string) {
